@@ -6,6 +6,7 @@ from flask import Flask, request
 from threading import Thread
 
 access_information = ''
+scope = 'identity' #SET THIS. SEE http://praw.readthedocs.org/en/latest/pages/oauth.html#oauth-scopes FOR DETAILS.
 #==================================================End Config======================================================
 #==================================================OAUTH APPROVAL==================================================
 app = Flask(__name__)
@@ -41,7 +42,7 @@ r = praw.Reddit('OAuth FLASK Template Script'
                 'https://praw.readthedocs.org/en/latest/'
                 'pages/oauth.html for more info.')
 r.set_oauth_app_info(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI)
-webbrowser.open(r.get_authorize_url('DifferentUniqueKey',refreshable=True))
+webbrowser.open(r.get_authorize_url('DifferentUniqueKey',scope))
 app.run(debug=False, port=65010)
 amt = Thread(target=refresh_access,args=())
 amt.daemon=True
