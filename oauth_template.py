@@ -15,21 +15,20 @@ CLIENT_SECRET = 'CLIENT_SECRET'
 REDIRECT_URI = 'http://127.0.0.1:65010/authorize_callback'
 
 def kill():
-    func = request.environ.get('werkzeug.server.shutdown')
-    if func is None:
-        raise RuntimeError('Not running with the Werkzeug Server')
-    func()
-    return "Shutting down..."
+	func = request.environ.get('werkzeug.server.shutdown')
+	if func is None:
+		raise RuntimeError('Not running with the Werkzeug Server')
+	return "Shutting down..."
 
 @app.route('/authorize_callback')
 def authorized():
-    state = request.args.get('state', '')
-    code = request.args.get('code', '')
-    access_information = r.get_access_information(code)
-    user = r.get_me()
-    text = 'Sub Notifications Bot has been successfully started.'
-    kill()
-    return text
+	state = request.args.get('state', '')
+	code = request.args.get('code', '')
+	access_information = r.get_access_information(code)
+	user = r.get_me()
+	text = 'Sub Notifications Bot has been successfully started.'
+	kill()
+	return text
 	
 def refresh_access():
 	while(True):
