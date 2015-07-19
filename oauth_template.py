@@ -35,7 +35,6 @@ def authorized():
 def refresh_access():
 	while(True):
 		time.sleep(1800)
-		print 'Refreshing Credentials'
 		r.refresh_access_information(access_information['refresh_token'])
 	
 r = praw.Reddit('OAuth FLASK Template Script'
