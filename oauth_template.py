@@ -29,7 +29,7 @@ def authorized():
 	code = request.args.get('code', '')
 	access_information = r.get_access_information(code)
 	user = r.get_me()
-	text = 'Sub Notifications Bot has been successfully started.'
+	text = 'Bot successfully started.'
 	kill()
 	return text
 	
