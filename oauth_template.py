@@ -23,6 +23,7 @@ def kill():
 
 @app.route('/authorize_callback')
 def authorized():
+	global access_information
 	state = request.args.get('state', '')
 	code = request.args.get('code', '')
 	access_information = r.get_access_information(code)
