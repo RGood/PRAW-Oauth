@@ -11,8 +11,8 @@ scope = 'identity' #SET THIS. SEE http://praw.readthedocs.org/en/latest/pages/oa
 #==================================================OAUTH APPROVAL==================================================
 app = Flask(__name__)
 
-CLIENT_ID = 'CLIENT_ID'
-CLIENT_SECRET = 'CLIENT_SECRET'
+CLIENT_ID = 'CLIENT_ID' #SET THIS TO THE ID UNDER PREFERENCES/APPS
+CLIENT_SECRET = 'CLIENT_SECRET' #SET THIS TO THE SECRET UNDER PREFERENCES/APPS
 REDIRECT_URI = 'http://127.0.0.1:65010/authorize_callback'
 
 def kill():
