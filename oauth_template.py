@@ -15,6 +15,7 @@ scope = 'identity' #SET THIS. SEE http://praw.readthedocs.org/en/latest/pages/oa
 
 REDIRECT_URI = 'http://127.0.0.1:65010/authorize_callback'
 
+#Kill function, to stop server once auth is granted
 def kill():
 	func = request.environ.get('werkzeug.server.shutdown')
 	if func is None:
@@ -22,6 +23,7 @@ def kill():
 	func()
 	return "Shutting down..."
 
+#Callback function to receive auth code
 @app.route('/authorize_callback')
 def authorized():
 	global access_information
