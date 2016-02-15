@@ -27,7 +27,7 @@ def authorized():
 	global access_information
 	state = request.args.get('state', '')
 	code = request.args.get('code', '')
-	information = r.get_access_information(code)
+	r.get_access_information(code)
 	user = r.get_me()
 	text = 'Bot successfully started.'
 	kill()
