@@ -29,7 +29,7 @@ def authorized():
 	code = request.args.get('code', '')
 	r.get_access_information(code)
 	user = r.get_me()
-	text = 'Bot successfully started.'
+	text = 'Bot successfully started on account /u/'+user.name
 	kill()
 	return text
 	
